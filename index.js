@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 
 const app = express();
@@ -14,15 +15,17 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+app.use(cors());
+
 app.post('/send-email', async (req, res) => {
-    const { invited } = req.body;
+    const { name } = req.body;
 
     try {
         const mailOptions = {
             from: "professorctrlplaytesteapi@gmail.com",
             to: "pedrohvidals@gmail.com",
             subject: "Convidado confirmado CTRL PLAY",
-            text: `Por meio desse email estamos alertando que o convidade ${invited} confirmou sua participação na apresentação do trabalho dos alunos da CTRLPLAY!`,
+            text: `Por meio dessa mensagem, informo que está confirmada a presença de "${name}" na feira da CTRL PLAY!`,
         };
 
         await transporter.sendMail(mailOptions);
