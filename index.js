@@ -19,6 +19,7 @@ app.use(cors());
 
 app.post('/send-email', async (req, res) => {
     const { name } = req.body;
+    console.log("bateu aqui no endpoint");
 
     try {
         const mailOptions = {
