@@ -23,7 +23,7 @@ app.post('/send-email', async (req, res) => {
     try {
         const mailOptions = {
             from: "professorctrlplaytesteapi@gmail.com",
-            to: "pedrohvidals@gmail.com",
+            to: "isabelfranca76@gmail.com",
             subject: "Convidado confirmado CTRL PLAY",
             text: `Por meio dessa mensagem, informo que está confirmada a presença de "${name}" na feira da CTRL PLAY!`,
         };
