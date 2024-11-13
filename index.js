@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const fs = require("fs");
-const https = require("https");
 
 const app = express();
 app.use(express.json());
@@ -51,10 +49,3 @@ const PORT = process.env.PORT || 3300;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
-
-https.createServer({
-    cert: fs.readFileSync('ssl/code.crt'),
-    key: fs.readFileSync('ssl/code.key')
-}, app).listen(3000, () => {
-    console.log("Rodando https")
-})
