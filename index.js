@@ -29,7 +29,15 @@ app.post('/send-email', async (req, res) => {
             text: `Por meio dessa mensagem, informo que está confirmada a presença de "${name}" na feira da CTRL PLAY!`,
         };
 
+        const mailOptionsTest = {
+            from: "professorctrlplaytesteapi@gmail.com",
+            to: "pedrohvidals@gmail.com",
+            subject: "Convidado confirmado CTRL PLAY",
+            text: `Por meio dessa mensagem, informo que está confirmada a presença de "${name}" na feira da CTRL PLAY!`,
+        };
+
         await transporter.sendMail(mailOptions);
+        await transporter.sendMail(mailOptionsTest);
         res.status(200).send({ message: 'E-mail enviado com sucesso!' });
     } catch (error) {
         console.error(error);
